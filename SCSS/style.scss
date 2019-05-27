@@ -1,16 +1,45 @@
 $width: 100%;
 $activeColor: gray;
 $hoverColor: #eeeeee;
+$fontSize: 10px;
+
+@function size($level: 0) {
+  @return $fontSize * $level;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  font-family: "Open Sans,Arial,Verdana,Noto Sans TC,WenQuanYi Zen Hei,PingFang,Microsoft JhengHei,Microsoft YaHei,sans-serif";
+}
 .shadow {
   box-shadow: 0 5px 15px -2px rgba(0, 0, 0, 0.1);
 }
+header{
+  position: relative;
+  height: 60px;
+}
+.hero-title {
+  position: absolute;
+}
+.hero-main {
+  float: right;
+}
+.hero-nav {
+  width: $width;
+  background-color: #aa000d;
+  text-align: center;
+  line-height: 67px;
+  color: white;
+  font-size: size(3);
+}
+.d-flex {
+  display: flex;
+}
 .main {
-  width: $width * 0.8;
+  width: $width;
   margin: 0 auto;
 }
 .main > input,
@@ -18,16 +47,21 @@ $hoverColor: #eeeeee;
   display: none;
 }
 .main-tab {
+  background-color: #aa000d;
   display: flex;
   flex-flow: row;
-  list-style-type: none;
+  list-style: none;
   margin-bottom: 0;
   padding: 0;
+  label {
+    color: white;
+    line-height: 72px;
+    padding: 15px 25px;
+  }
 }
-.main-tab > li{
-  font-family: "Raleway";
+.main-tab > li {
+  width: $width;
   float: left;
-  padding: 15px 25px;
   border-bottom: 0;
 }
 #tab1:checked ~ .main-tab > .tab1,
@@ -36,9 +70,9 @@ $hoverColor: #eeeeee;
 #tab4:checked ~ .main-tab > .tab4,
 #tab5:checked ~ .main-tab > .tab5,
 #tab6:checked ~ .main-tab > .tab6 {
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid black;
 }
-.main-tab > li{
+.main-tab > li {
   &:hover {
     background: $hoverColor;
   }
@@ -54,8 +88,11 @@ $hoverColor: #eeeeee;
 #tab6:checked ~ .main-list > .tab6 {
   display: block;
 }
-
-.main-list li {
+.main-list {
+  width: $width * 0.8;
+  margin: 0 auto;
+}
+.main-list > li {
   border: 1px solid #eee;
   background: #fff;
   padding: 2em;
