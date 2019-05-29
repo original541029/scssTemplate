@@ -80,6 +80,7 @@ header {
       -ms-flex-flow: row;
           flex-flow: row;
   list-style: none;
+  line-height: 36px;
 }
 
 .main-tab label {
@@ -216,23 +217,23 @@ header {
 
 @-webkit-keyframes twinkle {
   from {
-    background: #aa000d;
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    background: rgba(170, 0, 13, 0.9);
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
   }
   to {
-    background: rgba(255, 69, 0, 0.7);
+    background: rgba(170, 0, 13, 0.9);
   }
 }
 
 @keyframes twinkle {
   from {
-    background: #aa000d;
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    background: rgba(170, 0, 13, 0.9);
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
   }
   to {
-    background: rgba(255, 69, 0, 0.7);
+    background: rgba(170, 0, 13, 0.9);
   }
 }
 
@@ -252,6 +253,9 @@ header {
     overflow-x: scroll;
     -ms-scroll-snap-type: x proximity;
         scroll-snap-type: x proximity;
+  }
+  .main-tab label {
+    font-size: 14px;
   }
   .main-tab::-webkit-scrollbar {
     display: none;
