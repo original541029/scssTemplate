@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/css/all.min.css">
     <link rel="stylesheet" href="dist/style/style.min.css">
     <title>加入中強</title>
 </head>
 
 <body>
-    <div onclick="topFunction()" class="go-top" ></div>
+    <div onclick="topFunction()" class="go-top"></div>
     <a href="https://hrm.coretronic.com/Hr_recruit/user_login" class="join-btn text-decoration-none ">
-        <p>Join us</p></a>
+        <p>Join us</p>
+    </a>
     <div id="container">
         <header>
+            <i class="fas fa-bars" onclick="openSlideMenu()"></i>
             <div class="hero-title">
                 <img src="img/logo.svg" alt="">
             </div>
@@ -35,6 +38,10 @@
             <input id="tab5" type="radio" name="tab" />
             <input id="tab6" type="radio" name="tab" />
             <ul class="main-tab">
+                <li>
+                    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a> 
+                </li>
+
                 <li class="tab1">
                     <label class="text-white" for="tab1">研發 </label>
                 </li>
@@ -64,7 +71,7 @@
                             <p>Android 軟體開發工程師 (VSBG)</p>
                         </div>
                         <p class="list-main-text">
-                                Ajen在問中文文字的左右對齊，像Micro word裡面的編輯，可以達到左右兩側對齊，所以就寫這一篇CSS語法的說明，看在CSS樣式裡面怎麼設定的達到這樣的效果！
+                            Ajen在問中文文字的左右對齊，像Micro word裡面的編輯，可以達到左右兩側對齊，所以就寫這一篇CSS語法的說明，看在CSS樣式裡面怎麼設定的達到這樣的效果！
                         </p>
                     </div>
                 </li>
@@ -562,15 +569,17 @@
             } else {
                 document.querySelector(".go-top").style.display = "none";
             }
-            if (window.pageYOffset > sticky) {
-                header.classList.add("sticky");
-            } else {
-                header.classList.remove("sticky");
-            }
         }
         function topFunction() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
+        }
+
+        function openSlideMenu() {
+            document.querySelector('.main-tab').style.width = '250px';
+        }
+        function closeSlideMenu(){
+            document.querySelector('.main-tab').style.width = '0px';
         }
     </script>
 </body>

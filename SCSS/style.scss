@@ -14,7 +14,7 @@ $baseFontStyle: "Microsoft JhengHei";
   display: flex;
 }
 .text-decoration-none {
- text-decoration: none;
+  text-decoration: none;
 }
 .text-center {
   text-align: center;
@@ -26,7 +26,7 @@ body {
   font-family: $baseFontStyle;
 }
 .shadow {
-  box-shadow: 1px 2px 11px rgba(0,0,0,.4);
+  box-shadow: 1px 2px 11px rgba(0, 0, 0, 0.4);
 }
 header {
   position: relative;
@@ -58,19 +58,36 @@ header {
 .main .main-list > li {
   display: none;
 }
+
 .main-tab {
+  .btn-close {
+    position: absolute;
+    top:0;
+    right: 22px;
+    font-size: 36px;
+    margin-left: 36px;
+    text-decoration: none;
+    color: white;
+  }
+  width: 0;
+  position: fixed;
+  z-index: 10;
   margin: 0 0 size(4) 0;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  background-color: #aa000d;
-  display: flex;
-  flex-flow: row;
-  list-style: none;
   line-height: 36px;
+  height: 100%;
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  background-color: #aa000d;
+  overflow-x: hidden;
+  transition: .5s;
   label {
     font-size: size(2);
     text-align: center;
     display: block;
     width: $width;
+    min-width: 200px;
     &:hover {
       background-color: $activeColor;
     }
@@ -80,8 +97,8 @@ header {
   }
 }
 .main-tab > li {
+  background-color: #aa000d;
   width: $width;
-  float: left;
   border-bottom: 0;
 }
 #tab1:checked ~ .main-tab > .tab1,
@@ -138,7 +155,6 @@ header {
   position: fixed;
   bottom: size(9);
   right: size(3);
-
   cursor: pointer;
   height: 18px;
   width: 18px;
@@ -150,12 +166,12 @@ header {
   transition: transform 0.3s;
   z-index: 99;
 }
-.join-btn{
+.join-btn {
   position: fixed;
   bottom: size(2);
   right: size(1);
   z-index: 99;
-  width:  size(6);
+  width: size(6);
   height: size(6);
   font-size: size(1.4);
   display: flex;
@@ -164,34 +180,31 @@ header {
   animation: twinkle 1s alternate infinite;
   color: white;
   border-radius: 50%;
-
 }
 
-
-@keyframes twinkle{
-    from{  background:rgba(170, 0, 13, 0.9);    transform: scale(1.05);}
-    to{  background:rgba(170, 0, 13, 0.9);}
-}
-.sticky {
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  width: 100%;
+@keyframes twinkle {
+  from {
+    background: rgba(170, 0, 13, 0.9);
+    transform: scale(1.05);
+  }
+  to {
+    background: rgba(170, 0, 13, 0.9);
+  }
 }
 
 @media only screen and (max-width: 736px) {
-  .main-tab {
-    display: grid;
-    grid-template-columns: repeat(6, calc(40% - 20px * 2));
-    overflow-x: scroll;
-    scroll-snap-type: x proximity;
-  }
-  .main-tab label{
-    font-size: 14px;
-  }
-  .main-tab::-webkit-scrollbar {
-    display: none;
-  }
+  // .main-tab {
+  //   display: grid;
+  //   grid-template-columns: repeat(6, calc(40% - 20px * 2));
+  //   overflow-x: scroll;
+  //   scroll-snap-type: x proximity;
+  // }
+  // .main-tab label{
+  //   font-size: 14px;
+  // }
+  // .main-tab::-webkit-scrollbar {
+  //   display: none;
+  // }
   .hero-title {
     left: calc(50% - 65.5px);
     bottom: calc(50% - 14.4px);
@@ -200,7 +213,7 @@ header {
     }
   }
   .main-list > li {
-    flex-flow: column ;
+    flex-flow: column;
     text-align: center;
     .list-main {
       margin-top: size(1);
