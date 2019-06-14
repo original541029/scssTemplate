@@ -5,6 +5,12 @@ $baseFontStyle: "Microsoft JhengHei";
 @function size($level: 1) {
   @return $baseSize * $level;
 }
+.container{
+  position: absolute;
+  left: size(25);
+  width: calc(100% - 250px) ;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,34 +29,37 @@ $baseFontStyle: "Microsoft JhengHei";
   color: white;
 }
 body {
+  background-color: #f8f8f8;
   font-family: $baseFontStyle;
 }
 .shadow {
   box-shadow: 1px 2px 11px rgba(0, 0, 0, 0.4);
 }
 header {
-  position: relative;
-  height: 60px;
+  width: calc(100% - 250px) ;
+  border-top: 3px solid #ea2c3b;
+  position: fixed;
+  z-index: 10;
+  height: size(6);
+  margin-bottom: size(2);
+  background-color: #fafafb;
+  box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 6px rgba(59,64,69,0.1);
 }
 .hero-title {
   position: absolute;
+  align-items: center;
   font-weight: bold;
-  bottom: 0;
+  top: size(1);
   left: size(1);
 }
 .hero-main {
-  font-family: "Segoe UI", Arial, sans-serif;
   position: absolute;
-  right: 0;
-  bottom: 0;
-  margin: size(1) size(1) size(1);
-  p {
-    font-size: size(1.5);
-    letter-spacing: 4px;
-  }
+  top: size(1);
+  left: calc(50% - 65.5px);
 }
 
 .main {
+  padding-top: size(9);
   width: $width;
   margin: 0 auto;
 }
@@ -60,16 +69,16 @@ header {
 }
 
 .main-tab {
+  width: 250px ;
   .btn-close {
     position: absolute;
-    top:0;
+    top: 0;
     right: 22px;
     font-size: 36px;
     margin-left: 36px;
     text-decoration: none;
     color: white;
   }
-  width: 0;
   position: fixed;
   z-index: 10;
   margin: 0 0 size(4) 0;
@@ -79,9 +88,10 @@ header {
   opacity: 0.9;
   top: 0;
   left: 0;
-  background-color: #aa000d;
+  background-color:black;
+  opacity: 0.8;
   overflow-x: hidden;
-  transition: .5s;
+  transition: 0.5s;
   label {
     font-size: size(2);
     text-align: center;
@@ -96,8 +106,16 @@ header {
     }
   }
 }
+.btn-close,.fa-bars{
+  display: none;
+}
+.fa-bars{
+  font-size: 24px;
+  color: grey;
+}
 .main-tab > li {
-  background-color: #aa000d;
+  background-color: black;
+  opacity: 0.8;
   width: $width;
   border-bottom: 0;
 }
@@ -107,7 +125,7 @@ header {
 #tab4:checked ~ .main-tab > .tab4,
 #tab5:checked ~ .main-tab > .tab5,
 #tab6:checked ~ .main-tab > .tab6 {
-  background-color: black;
+  background-color: #aa000d;
 }
 #tab1:checked ~ .main-list > .tab1,
 #tab2:checked ~ .main-list > .tab2,
@@ -142,7 +160,7 @@ header {
   margin: 0 auto;
   > li {
     border: 1px solid #9e9e9e73;
-    background: #fff;
+    background: #fafafa;
     padding: 2em;
     margin-bottom: 7px;
     border-radius: 4px;
@@ -193,24 +211,19 @@ header {
 }
 
 @media only screen and (max-width: 736px) {
-  // .main-tab {
-  //   display: grid;
-  //   grid-template-columns: repeat(6, calc(40% - 20px * 2));
-  //   overflow-x: scroll;
-  //   scroll-snap-type: x proximity;
-  // }
-  // .main-tab label{
-  //   font-size: 14px;
-  // }
-  // .main-tab::-webkit-scrollbar {
-  //   display: none;
-  // }
-  .hero-title {
-    left: calc(50% - 65.5px);
-    bottom: calc(50% - 14.4px);
-    img {
-      width: 80%;
-    }
+  header {
+    width: 100% ;
+  }
+  .fa-bars,.btn-close{
+    display: block;
+  }
+  
+  .container{
+    width: 100%;
+    left:0;
+  }
+  .main-tab{
+    width: 0;
   }
   .main-list > li {
     flex-flow: column;
@@ -221,11 +234,6 @@ header {
   }
   .list-title {
     margin: 0 auto;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .hero-main {
-    display: none;
   }
 }
 // $width: 100%;
